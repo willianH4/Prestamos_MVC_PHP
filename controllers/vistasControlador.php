@@ -12,8 +12,8 @@
         // obtiene las vistas
         public function obtener_Vistas_Controlador()
         {
-           if ( isset($_GET['views']) ) {
-               $ruta = explode("/", _GET['views']);
+           if (isset($_GET['views'])) {
+               $ruta = explode("/", $_GET['views']);
                $respuesta = vistasModelo::obtener_Vistas_Modelo($ruta[0]);
            } else {
                $respuesta="login";

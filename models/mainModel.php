@@ -105,7 +105,7 @@
         }
 
         // funcion de paginacion de las tablas
-        protected static function paginador_tablas($pagina, $Npaginas, $url){
+        protected static function paginador_tablas($pagina, $Npaginas, $url, $botones){
             $tabla = '<nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">';
 
@@ -119,9 +119,23 @@
                 Anterior</a></li>';
             }
             
+            $ci=0;
             // demas botones usando un ciclo for
-            for ($i=0; $i < ; $i++) { 
-                # code...
+            for ($i=$pagina; $i <= $Npaginas; $i++) { 
+                
+                if ($ci>=$botones) { 
+                break; 
+                }
+
+                if ($pagina==$i) {
+                    $tabla.='<li class="page-item"><a class="page-link active" href="'.$url.$i.'/">
+                    '.$i.'</a></li>';
+                } else {
+                    $tabla.='<li class="page-item"><a class="page-link" href="'.$url.$i.'/">
+                    '.$i.'</a></li>';
+                }
+                $ci++;
+                
             }
 
             if ($pagina == $Npaginas) {
